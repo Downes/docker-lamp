@@ -67,7 +67,7 @@ ENV TERM dumb
 
 
 RUN rm -f /etc/apache2/conf-available/serve-cgi-bin.conf 
-COPY cgi-enabled.conf /etc/apache2/conf-available/cgi-enabled.conf
+COPY cgi-enabled.conf /etc/apache2/conf-available/
 RUN mkdir /var/www/html/cgi-bin
 RUN a2enconf cgi-enabled 
 
