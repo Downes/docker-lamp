@@ -65,7 +65,9 @@ ENV ALLOW_OVERRIDE All
 ENV DATE_TIMEZONE UTC
 ENV TERM dumb
 
+RUN a2enmod rewrite
 
+RUN a2enmod cgid 
 RUN rm -f /etc/apache2/conf-available/serve-cgi-bin.conf 
 COPY cgi-enabled.conf /etc/apache2/conf-available/
 RUN mkdir /var/www/html/cgi-bin
@@ -76,7 +78,7 @@ COPY server_test.cgi /var/www/html/cgi-bin
 RUN chmod 705 /var/www/html/cgi-bin/server_test.cgi
 COPY run-lamp.sh /usr/sbin/
 
-RUN a2enmod rewrite
+
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 RUN chmod +x /usr/sbin/run-lamp.sh
 RUN chown -R www-data:www-data /var/www/html
