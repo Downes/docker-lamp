@@ -27,7 +27,7 @@ http://localhost  (should show Apache index page)
 
 http://localhost/index.php  (should show PHP index page)
 
-http://localhost/cgi-bin/server_test,cgo  (should show Perl test page)     
+http://localhost/cgi-bin/server_test.cgi  (should show Perl test page)     
 
  
 
