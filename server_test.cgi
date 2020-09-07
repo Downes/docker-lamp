@@ -105,6 +105,7 @@ use the cpan command to load it. The syntax is: <tt> cpan -i &lt;module name&gt;
 # -------------
 # Test database access (from default config in Dockerfile)
 
+print "<p>Testing database access (from default config in Dockerfile)</p>";
 use DBI;
 
     	# Make variables easy to read :)
@@ -128,6 +129,8 @@ use DBI;
 
 	# I'll put more error-checking here
 	} else {
+	
+	        print "<p>Database successfully connected.</p>";
 		eval {
 		#$dbh->do( whatever );
 		#$dbh->{dbh}->do( something else );
