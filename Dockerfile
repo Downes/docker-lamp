@@ -86,6 +86,7 @@ COPY grsshopper.sql /var/www/html/cgi-bin/grsshopper.sql
 RUN /bin/bash -c "/usr/bin/mysqld_safe --skip-grant-tables &" && \
   sleep 5 && \
   mysql -u root -e "CREATE DATABASE grsshopper" && \
+  mysql -u root -e "grant all privileges on grsshopper.* TO 'grsshopper_user'@'localhost' identified by 'user_password'" && \
   mysql -u root grsshopper < /var/www/html/cgi-bin/grsshopper.sql
   
 RUN ln -s /usr/bin/nodejs /usr/bin/node
