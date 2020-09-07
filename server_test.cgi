@@ -120,7 +120,7 @@ use DBI;
 	if( ! $dbh ) {
 
               print "Content-type: text/html\n\n";
-	      print "Database connection error for db '$dbname'. Please contact the site administrator.<br>";   }
+	      print "Database connection error for db '$dbname'. Please contact the site administrator.<br>";   
 
 		# Print error report and exit
 		print "Error String Reported: $DBI::errstr <br>";
