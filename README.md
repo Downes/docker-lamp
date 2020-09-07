@@ -69,7 +69,9 @@ RUN apt-get install -y \
       
       libwww-perl \
       
-      libmime-types-perl
+      libmime-types-perl \
+      
+      libcpanel-json-xs-perl
 
 RUN a2enmod cgid 
 
