@@ -3,6 +3,16 @@ downes/lamp
 
 This is a fork of furia/lamp (full Readme below). It adds Perl to the set of supported environments, and sets up a cgi-bin directory at /var/www/html/cgi-bin
 
+Docker image is here: https://hub.docker.com/r/downes/docker-lamp
+
+To run:
+```
+docker pull downes/docker-lamp
+
+docker run --publish 80:80 --detach --name bb3 downeslamp
+```
+
+
 Setup from repo as follows:
 
 Process:
