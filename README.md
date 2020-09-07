@@ -13,7 +13,7 @@ docker run --publish 80:80 --detach --name bb3 downeslamp
 ```
 
 
-Setup from repo as follows:
+OR, run from thw GitHub repository as follows:
 
 Process:
 
