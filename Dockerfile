@@ -51,6 +51,7 @@ RUN apt-get install -y \
       libcgi-session-perl \
       libwww-perl \
       libmime-types-perl \
+      libjson-perl \
       libjson-xs-perl \
       libtypes-datetime-perl \
       libmime-lite-tt-html-perl
