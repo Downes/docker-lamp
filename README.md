@@ -71,6 +71,8 @@ RUN apt-get install -y \
       
       libmime-types-perl \
       
+      libjson-perl \
+      
       libjson-xs-perl \
       
       libtypes-datetime-perl \
