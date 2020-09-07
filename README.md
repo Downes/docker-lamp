@@ -1,3 +1,50 @@
+downes/lamp
+==========
+
+Thisa is a fork of furia/lamp (full Readme below). Setup from repo as follows:
+
+Process:
+
+```
+git clone  https://github.com/Downes/docker-lamp
+```
+        (or git pull origin master if reloading the changed repo)
+
+
+```
+cd docker-lamp
+
+docker build --tag downeslamp .
+
+docker run --publish 80:80 --detach --name bb3 downeslamp
+```
+
+Testing the server
+
+http://localhost  (should show Apache index page)
+
+http://localhost/index.php  (should show PHP index page)
+
+http://localhost/cgi-bin/server_test,cgo  (should show Perl test page)     
+
+ 
+
+If Perl CGI isn't running properly, try:
+```
+docker exec -it bb3 /etc/init.d/apache2 reload
+```
+
+   (you can't docker exec -it bb3 apache2ctl restart because it crashes the entire container - see https://stackoverflow.com/questions/37523338/how-to-restart-apache2-without-terminating-docker-container )
+
+   ( if you crash it, docker start bb3 )
+
+Open a shell inside
+```
+docker exec -i -t bb3 bash
+```
+
+
+
 fauria/lamp
 ==========
 
