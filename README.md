@@ -71,7 +71,7 @@ RUN apt-get install -y \
       
       libmime-types-perl \
       
-      libcpanel-json-xs-perl
+      libjson-xs-perl
 
 RUN a2enmod cgid 
 
