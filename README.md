@@ -1,7 +1,7 @@
 downes/lamp
 ==========
 
-This is a fork of furia/lamp (full Readme below). It adds Perl to the set of supported environments, and sets up a cgi-bin directory at /var/www/html/cgi-bin
+This is a fork of furia/lamp (full Readme below). It adds Perl to the set of supported environments, and sets up a cgi-bin directory at /var/www/html/cgi-bin. The Maria database (mysql) is loaded, a database is created with a test user, and Perl access to the database is created and tested. Run cgi-bin/server_test.cgi to test all Perl functions.
 
 Docker image is here: https://hub.docker.com/r/downes/docker-lamp
 
@@ -97,6 +97,19 @@ COPY server_test.cgi /var/www/html/cgi-bin
 RUN chmod 705 /var/www/html/cgi-bin/server_test.cgi
 
 COPY run-lamp.sh /usr/sbin/
+
+COPY grsshopper.sql /var/www/html/cgi-bin/grsshopper.sql
+
+RUN /bin/bash -c "/usr/bin/mysqld_safe &" && \
+
+  sleep 5 && \
+  
+  mysql -u root -e "CREATE DATABASE grsshopper" && \
+  
+  mysql -u root -e "grant all privileges on grsshopper.* TO 'grsshopper_user'@'localhost' identified by 'user_password'" && \
+  
+  mysql -u root grsshopper < /var/www/html/cgi-bin/grsshopper.sql
+  
 ```
 Also:
 
@@ -105,6 +118,8 @@ Also:
 - Created cgi-enabled.conf to set up cgi-bin configuration 
 
 - Created server_test.cgi which tests Perl modules 
+
+- Created grsshopper.sql as a test database with one table in it
 
 
 
