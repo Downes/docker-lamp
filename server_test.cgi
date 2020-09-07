@@ -108,7 +108,7 @@ use the cpan command to load it. The syntax is: <tt> cpan -i &lt;module name&gt;
 use DBI;
 
     	# Make variables easy to read :)
-    	my $dbname = "grsshopper"
+    	my $dbname = "grsshopper";
     	my $dbhost = "localhost";
     	my $usr = "grsshopper_user";
     	my $pwd = "user_password";
