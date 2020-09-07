@@ -83,7 +83,7 @@ RUN chmod 705 /var/www/html/cgi-bin/server_test.cgi
 COPY run-lamp.sh /usr/sbin/
 
 COPY grsshopper.sql /var/www/html/cgi-bin/grsshopper.sql
-RUN /bin/bash -c "/usr/bin/mysqld_safe --skip-grant-tables &" && \
+RUN /bin/bash -c "/usr/bin/mysqld_safe &" && \
   sleep 5 && \
   mysql -u root -e "CREATE DATABASE grsshopper" && \
   mysql -u root -e "grant all privileges on grsshopper.* TO 'grsshopper_user'@'localhost' identified by 'user_password'" && \
