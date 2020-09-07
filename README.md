@@ -80,6 +80,15 @@ RUN chmod 705 /var/www/html/cgi-bin/server_test.cgi
 
 COPY run-lamp.sh /usr/sbin/
 ```
+Also:
+
+- remove existing serve-cgi-bin.conf because it redirects cgi-bin to /usr/lib/cgi-bin
+
+- Created cgi-enabled.conf to set up cgi-bin configuration 
+
+- Created server_test.cgi which tests Perl modules 
+
+
 
 fauria/lamp
 ==========
