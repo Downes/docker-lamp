@@ -102,6 +102,42 @@ use the cpan command to load it. The syntax is: <tt> cpan -i &lt;module name&gt;
 
 }
 
+# -------------
+# Test database access (from default config in Dockerfile)
+
+use DBI;
+
+    	# Make variables easy to read :)
+    	my $dbname = "grsshopper"
+    	my $dbhost = "localhost";
+    	my $usr = "grsshopper_user";
+    	my $pwd = "user_password";
+
+	# Connect to the Database
+  	my $dbh = DBI->connect("DBI:mysql:database=$dbname;host=$dbhost;port=3306",$usr,$pwd);
+
+	# Catch connection error
+	if( ! $dbh ) {
+
+              print "Content-type: text/html\n\n";
+	      print "Database connection error for db '$dbname'. Please contact the site administrator.<br>";   }
+
+		# Print error report and exit
+		print "Error String Reported: $DBI::errstr <br>";
+		exit;
+
+	# I'll put more error-checking here
+	} else {
+		eval {
+		#$dbh->do( whatever );
+		#$dbh->{dbh}->do( something else );
+		};
+
+		if( $@ ) {
+			print "Ugg, problem: $@\n";
+		}
+	}
+
 
 
 exit;
