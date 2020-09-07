@@ -73,7 +73,9 @@ RUN apt-get install -y \
       
       libjson-xs-perl \
       
-      libtypes-datetime-perl
+      libtypes-datetime-perl \
+      
+      libmime-lite-tt-html-perl
 
 RUN a2enmod cgid 
 
