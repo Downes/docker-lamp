@@ -1,7 +1,9 @@
 downes/lamp
 ==========
 
-Thisa is a fork of furia/lamp (full Readme below). Setup from repo as follows:
+This is a fork of furia/lamp (full Readme below). It adds Perl to the set of supported environments, and sets up a cgi-bin directory at /var/www/html/cgi-bin
+
+Setup from repo as follows:
 
 Process:
 
@@ -43,7 +45,41 @@ Open a shell inside
 docker exec -i -t bb3 bash
 ```
 
+What I've changed from furia/lamp
+=================================
 
+Dockerfile:
+
+Inserted the following lines (this is just a starter, I'll be adding more later):
+
+```
+RUN apt-get install -y \
+
+      libcgi-session-perl \
+      
+      libwww-perl \
+      
+      libmime-types-perl
+
+RUN a2enmod cgid 
+
+RUN rm -f /etc/apache2/conf-available/serve-cgi-bin.conf 
+
+COPY cgi-enabled.conf /etc/apache2/conf-available/
+
+RUN mkdir /var/www/html/cgi-bin
+
+RUN a2enconf cgi-enabled 
+
+
+COPY index.php /var/www/html/
+
+COPY server_test.cgi /var/www/html/cgi-bin
+
+RUN chmod 705 /var/www/html/cgi-bin/server_test.cgi
+
+COPY run-lamp.sh /usr/sbin/
+```
 
 fauria/lamp
 ==========
