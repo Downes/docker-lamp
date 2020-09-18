@@ -5,6 +5,8 @@ This is a fork of furia/lamp (full Readme below). It adds Perl to the set of sup
 
 Docker image is here: https://hub.docker.com/r/downes/docker-lamp
 
+The complete story of how I built the image: https://halfanhour.blogspot.com/2020/09/boxing-grsshopper.html
+
 To run:
 ```
 docker pull downes/docker-lamp
