@@ -1,9 +1,10 @@
 FROM ubuntu:16.04
-MAINTAINER Fer Uria <fauria@gmail.com>
-LABEL Description="Cutting-edge LAMP stack, based on Ubuntu 16.04 LTS. Includes .htaccess support and popular PHP7 features, including composer and mail() function." \
+
+LABEL Description="Cutting-edge LAMP stack with Perl, based on Ubuntu 16.04 LTS. Includes .htaccess support and popular PHP7 features, including composer and mail() function." \
 	License="Apache License 2.0" \
 	Usage="docker run -d -p [HOST WWW PORT NUMBER]:80 -p [HOST DB PORT NUMBER]:3306 -v [HOST WWW DOCUMENT ROOT]:/var/www/html -v [HOST DB DOCUMENT ROOT]:/var/lib/mysql fauria/lamp" \
-	Version="1.0"
+	Version="1.0" \
+	Maintainer="Stephen Downes <stephen@downes.ca>"
 
 RUN apt-get update
 RUN apt-get upgrade -y
@@ -54,7 +55,10 @@ RUN apt-get install -y \
       libjson-perl \
       libjson-xs-perl \
       libtypes-datetime-perl \
-      libmime-lite-tt-html-perl
+      libmime-lite-tt-html-perl \
+	  liblingua-en-inflect-number-perl \
+	  perl-Image-Resize-Path \
+	  libemail-stuffer-perl
       
 RUN apt-get install apache2 libapache2-mod-php7.0 -y
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
