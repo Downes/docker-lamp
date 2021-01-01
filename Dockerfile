@@ -58,7 +58,7 @@ RUN apt-get install -y \
       libmime-lite-tt-html-perl \
 	  liblingua-en-inflect-number-perl \
 	  perl-Image-Resize-Path \
-	  libemail-stuffer-perl
+	  libemail-stuffer-perl \
 	  libimage-magick-perl \
 	  librest-application-perl \
 	  libauthen-simple-perl  \
