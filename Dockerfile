@@ -59,6 +59,21 @@ RUN apt-get install -y \
 	  liblingua-en-inflect-number-perl \
 	  perl-Image-Resize-Path \
 	  libemail-stuffer-perl
+	  libimage-magick-perl \
+	  librest-application-perl \
+	  libauthen-simple-perl  \
+	  libauthen-simple-net-perl \
+	  libcgi-xml-perl \
+	  libxml-opml-perl
+
+RUN apt-get install -y \
+      libtemplate-plugin-gd-perl 
+
+RUN cpanm Image::Resize
+RUN cpanm JSON::Parse
+RUN cpanm Mastodon::Client
+RUN cpanm Net::Twitter::Lite::WithAPIv1_1
+RUN cpanm REST::Client
       
 RUN apt-get install apache2 libapache2-mod-php7.0 -y
 RUN apt-get install mariadb-common mariadb-server mariadb-client -y
